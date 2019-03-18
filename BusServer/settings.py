@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import pymysql
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,19 +76,21 @@ WSGI_APPLICATION = 'BusServer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'busserver',
-    #     'USER': 'fullstack',
-    #     'PASSWORD': 'quanzhan@123',
-    #     'HOST': '45.77.80.46',
-    #     'PORT': '9906'
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fullstack',
+        'USER': 'fullstack',
+        'PASSWORD': 'fullstack',
+        'HOST': '116.62.228.220',
+        'PORT': '3306'
+    }
 }
 
 
