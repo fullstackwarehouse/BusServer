@@ -85,7 +85,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fullstack',
+        'NAME': 'fullstack_test',
         'USER': 'fullstack',
         'PASSWORD': 'fullstack',
         'HOST': '116.62.228.220',

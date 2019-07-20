@@ -6,7 +6,7 @@ from django.db import models
 class Department(models.Model):
     number = models.CharField(max_length=30)
     name = models.CharField(max_length=255)
-    superior = models.ForeignKey("self", on_delete=models.PROTECT, default=0)
+    superior = models.ForeignKey("self", on_delete=models.PROTECT, default=1)
     charger = models.CharField(max_length=30, blank=True)
     telephone = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=500, blank=True)
@@ -15,8 +15,9 @@ class Department(models.Model):
     def init_data():
         Department.objects.all().delete()
         d1 = Department(
-            department_serial_number=1,
-            department_name=u"城市公交总公司")
+            number=1,
+            name=u"城市公交总公司")
+        d1.superior = d1
         d1.save()
 
     def __str__(self):
